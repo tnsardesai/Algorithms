@@ -1,1 +1,6 @@
 *.zip
+*/dist/
+*/build/
+*/nbproject/
+.*
+*/Makefile
