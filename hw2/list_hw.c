@@ -332,7 +332,37 @@ void deleteOccurrences(list A, Item V) {
 }
 
 list sublist(list A, list pos_list) {
-	return NULL;
+    // Since getFirst returns NULL for list=NULL and list->first = NULL
+    if(getFirst(A) == NULL || getFirst(pos_list) == NULL){
+        printf("Please check your list A and pos_list.\n"
+                "One or both of them are NULL or empty");
+        return NULL;
+    }
+
+    list result = newList();
+    link curr;
+    int i = 0 ;
+    int n = A->length;
+    link in = getFirst(pos_list);
+    link previous = NULL;
+    while (in != NULL) {
+        for (i = 0, curr = A->first; (curr != NULL) && (i<n) ; curr = curr->next) {
+            if (getLinkItem(in) < 0 || getLinkItem(in) >= getLength(A)){
+                printf("Index in pos_list is out of bounds.\n");
+                destroyList(result);
+                return NULL;
+            }
+            else if( i == getLinkItem(in)){
+                link out = newLink(getLinkItem(curr),NULL);
+                insertLink(result, previous, out);
+                previous = out;
+                in = getLinkNext(in);
+                break;
+            }
+            i++;
+        }
+    }
+    return result;
 }
 
 void moveAllMaxAtEnd(list A) {

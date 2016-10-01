@@ -53,10 +53,9 @@ int test_sublist(list A)  {
     printf("\n\n--------------------------------------\n");            
     printf("Testing sublist (for lists of ints).\n\n");
 	printList(A);
-
 	int arr_pos[] = {3,0,6,4};	
 	list pos_list = arrayToList(arr_pos, 4);
-	printf("List with positions pos_list:");
+        printf("List with positions pos_list:");
 	printList(pos_list);
 	        
     list res = sublist(A, pos_list);
