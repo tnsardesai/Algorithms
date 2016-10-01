@@ -324,7 +324,29 @@ void concatListsDestructive(list target, list source) {
  You should not change the behavior of any of the functions defined above.
  */
 void insertAtPosition(list A, Item P, int pos){
-	return;
+    if(listIsNULL(A)){
+        printf("A is not changed\n");
+        return;
+    }
+    link new = newLink(P,NULL);
+    link curr;
+    int i = 0 ;
+    int n = A->length;
+    if (pos <= 0 || getFirst(A) == NULL){
+        insertAtBeginning(A, new);
+        return;
+    }
+    else if (pos >=n){
+        pos = n;
+    }
+    for (i = 0, curr = A->first; (curr != NULL) && (i<n) ; curr = curr->next){
+        if (pos == i+1){
+            insertLink(A,curr,new);
+            return;
+        }
+        i++;
+    }
+    return;
 }
 
 void deleteOccurrences(list A, Item V) {
@@ -335,7 +357,7 @@ list sublist(list A, list pos_list) {
     // Since getFirst returns NULL for list=NULL and list->first = NULL
     if(getFirst(A) == NULL || getFirst(pos_list) == NULL){
         printf("Please check your list A and pos_list.\n"
-                "One or both of them are NULL or empty");
+                "One or both of them are NULL or empty.\n");
         return NULL;
     }
 

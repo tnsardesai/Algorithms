@@ -76,8 +76,8 @@ int test_insertAtPosition(list A) {
 
 	insertAtPosition(A, 12, 0);
 
-	printf("After calling insertAtPosition(A, 12, 0) (currently not implemented).\n");
-	printf("After you implement this function, list A (printed below) should have 12 at the beginning.\n");
+	//printf("After calling insertAtPosition(A, 12, 0) (currently not implemented).\n");
+	//printf("After you implement this function, list A (printed below) should have 12 at the beginning.\n");
 	printListHoriz(A);
 
 	printf("\n----------  end test function -------------------\n");
