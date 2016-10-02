@@ -108,15 +108,15 @@ int test_moveAllMaxAtEnd(list A) {
 
 	moveAllMaxAtEnd(A);
 			
-	printf("After calling moveAllMaxAtEnd (currently not implemented).\n");
-	printf("After you implement this function, list A (printed below) should have the largest value(s) at the end.\n");        
+	//printf("After calling moveAllMaxAtEnd (currently not implemented).\n");
+	//printf("After you implement this function, list A (printed below) should have the largest value(s) at the end.\n");        
 	printListHoriz(A);
 
 	printf("\n----------  end test function -------------------\n");
 	return 0;
 }
 
-int main() {	
+int main() {
     list A = NULL;
     int arr[] = {15, 100, 7, 5, 100, 7, 30};	
     A = arrayToList(arr, 7);

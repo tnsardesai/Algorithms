@@ -323,6 +323,18 @@ void concatListsDestructive(list target, list source) {
  If you need to use helper functions you can define them and use them in this file.
  You should not change the behavior of any of the functions defined above.
  */
+
+link getLastLink(list A){
+    link c = getFirst(A);
+
+    /* find the last link of target*/
+    while(c->next != NULL){
+        c = getLinkNext(c);
+    }
+    
+    return c;
+}
+
 void insertAtPosition(list A, Item P, int pos){
     if(listIsNULL(A)){
         printf("A is not changed\n");
@@ -419,5 +431,43 @@ list sublist(list A, list pos_list) {
 }
 
 void moveAllMaxAtEnd(list A) {
-	return;
+    if(getFirst(A) == NULL){
+        printf("Please check your list A.\n"
+                "It is  empty or NULL.\n");
+        return;
+    }
+    int max = 0;
+    link node = A->first;
+    while(node != NULL){
+        if(max < node->item ){
+            max = node->item;
+        }
+        node = node->next;
+    }
+    link curr;
+    link last;
+    int i = 0 ;
+    int n = A->length;
+    for (i = 0, curr = A->first; (i< n-1) ; i++){
+        if (A->first->item == max){
+            last = getLastLink(A);
+            last->next = A->first;
+            A->first = A->first->next;
+            last->next->next = NULL;
+            curr = A->first;
+            continue;
+        }
+        while (max == curr->next->item){
+            last = getLastLink(A);
+            last->next = curr->next;
+            curr->next = curr->next->next;
+            last->next->next = NULL;
+            i++;
+            if (i>n-1){
+                break;
+            }
+        }
+        curr = curr->next;
+    }
+    return;
 }
