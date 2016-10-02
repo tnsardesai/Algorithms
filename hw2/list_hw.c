@@ -350,7 +350,38 @@ void insertAtPosition(list A, Item P, int pos){
 }
 
 void deleteOccurrences(list A, Item V) {
-	return;
+    if(getFirst(A) == NULL){
+        printf("Please check your list A.\n"
+                "It is  empty or NULL.\n");
+        return;
+    }
+    while (V == A->first->item){
+        link fir = removeFirst(A);
+        free(fir);
+        if (A->first == NULL){
+            return;
+        }
+    }
+    link curr;
+    int i = 0 ;
+    int n = A->length;
+    for (i = 0, curr = A->first; (curr->next != NULL) && (i< n-1) ; curr = curr->next){
+        while (V == curr->next->item){
+            if (curr->next->next == NULL){
+                free(curr->next);
+                curr->next=NULL;
+                i++;
+                return;
+            }
+            else {
+                link out = removeNext(A,curr);
+                free(out);
+                i++;
+            }
+        }
+        i++;
+    }
+    return;
 }
 
 list sublist(list A, list pos_list) {

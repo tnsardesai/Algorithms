@@ -92,8 +92,8 @@ int test_deleteOccurrences(list A) {
 
 	deleteOccurrences(A, 7);
 			
-	printf("After calling deleteOccurrences(A,7) (currently not implemented).\n");
-	printf("After you implement this function, list A (printed below) should not have any values of 7.\n");
+	//printf("After calling deleteOccurrences(A,7) (currently not implemented).\n");
+	//printf("After you implement this function, list A (printed below) should not have any values of 7.\n");
 	printListHoriz(A);
 
 	printf("\n----------  end test function -------------------\n");
