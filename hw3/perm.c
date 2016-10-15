@@ -8,11 +8,19 @@
 // Implement the functions below. 
 // You can add any helper function you need.
 
+void swap_char(char * a, char * b){
+    char temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
 /* Recursive function that reverses the string str. 
  * N is the length of the string. 
  */
 void reverse_str(char * str, int N){
-    // your code here
+    swap_char(&str[0],&str[N-1]);
+    if (N>3)
+        reverse_str(str+1,N-2);
 }
 
 //  Time complexity: 

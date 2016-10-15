@@ -42,7 +42,7 @@ int main(int argc, char** argv) {
     reverse_str(str,5);
     printf("Reversed: %s\n", str);
 	
-	
+/*	
     call_perm_rec_1(3,2);  // you need to implement perm_rec_1
     call_perm_rec_1(5,2);
     call_perm_rec_1(4,3);
@@ -62,7 +62,7 @@ int main(int argc, char** argv) {
     print_2D(res);
     
     free_matrix_ptr(res); // you must implement this function.
-   
+ */  
     
     return (EXIT_SUCCESS);
 }
