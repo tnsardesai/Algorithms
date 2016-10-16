@@ -24,6 +24,22 @@ void print_arr(int * arr, int N){
     printf("\n");
 }
 
+void rec_1(int * array, int i, int N, int nr_vals){
+    int j;
+    if(i == N){
+        for(j =0; j< N; j++){
+            printf(" %d ",array[j]);
+        }
+        printf("\n");
+    }
+    else {
+        for(j=0;j<nr_vals; j++){
+            array[i]=j;
+            rec_1(array,i+1,N,nr_vals);
+        }
+    }
+}
+
 /* Recursive function that reverses the string str. 
  * N is the length of the string. 
  */
@@ -40,7 +56,9 @@ void free_matrix_ptr(matrix_ptr my_matrix){
 
 //  Time complexity: 
 void perm_rec_1(int N, int nr_vals){
-    // your code here
+    int array[N];
+    int i =0;
+    rec_1(array, 0, N, nr_vals);
 }
 
 //  Time complexity: 
@@ -53,7 +71,6 @@ matrix_ptr perm_rec_2(int N, int nr_vals) {
  *  N + (N + N -2)*what 
  *  So time complexity = theta()  
 */
-
 void perm_iter(int N, int nr_vals){    
     int array[N];
     int i = 0;
