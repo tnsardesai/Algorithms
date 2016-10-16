@@ -8,10 +8,20 @@
 // Implement the functions below. 
 // You can add any helper function you need.
 
+// Function to swap characters in a string.
 void swap_char(char * a, char * b){
     char temp = *a;
     *a = *b;
     *b = temp;
+}
+
+// Function to print an array of size N
+void print_arr(int * arr, int N){
+    int i=0;
+    for(i = 0; i < N; i++){
+        printf(" %d ", arr[i]);
+    }
+    printf("\n");
 }
 
 /* Recursive function that reverses the string str. 
@@ -39,8 +49,42 @@ matrix_ptr perm_rec_2(int N, int nr_vals) {
     return NULL;
 }
 
-//  Time complexity: 
+/*  Time complexity: 
+ *  N + (N + N -2)*what 
+ *  So time complexity = theta()  
+*/
+
 void perm_iter(int N, int nr_vals){    
-    // your code here
+    int array[N];
+    int i = 0;
+    for(i=0;i<N;i++)
+    {
+        array[i]= 0;
+    }
+    while(1){
+        int counter = 0;
+        int status = 0;
+        print_arr(array, N);
+        for(counter=0;counter<N;counter++){
+            if(array[counter] == nr_vals-1)
+                status++;
+        }
+        if (status == N){
+            break;
+        }
+        array[N-1]++;
+        if(array[N-1] == nr_vals){
+            array[N-1] = 0;
+            for(counter=N-2; counter >= 0; counter--){
+                array[counter]++;
+                if(array[counter]< nr_vals){
+                    break;
+                }
+                else {
+                    array[counter] = 0;
+                }
+            }
+        }
+    }
 }
 

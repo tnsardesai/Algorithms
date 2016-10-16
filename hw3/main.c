@@ -49,13 +49,13 @@ int main(int argc, char** argv) {
 
     call_perm_rec_1(2,4);
     call_perm_rec_1(4,2);  
-      
+ */     
     int N = 4;
     int nr_vals = 2;
     
     printf("\nIn Main, ITERATIVE, called : perm_iter(%d, %d);\n", N, nr_vals);   
     perm_iter(N, nr_vals); // you must implement this function.
-            
+/*            
     printf("\nIn Main, called : perm_rec_2(%d, %d);\n", N, nr_vals);       
     matrix_ptr res = perm_rec_2(N, nr_vals);  // you must implement this function.
     printf("\nIn Main, printing the res->data_arr table: \n");        
