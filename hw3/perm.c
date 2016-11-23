@@ -46,17 +46,19 @@ void reverse_str(char * str, int N){
         reverse_str(str+1,N-2);
 }
 
-//  Time complexity: 
+//  Time complexity: number of rows = theta(nr_vals^N)
 void free_matrix_ptr(matrix_ptr my_matrix){
-    
-    for(int i = 0; i < my_matrix->rows; i++){
+    int i =0;
+    for(i = 0; i < my_matrix->rows; i++){
         free(my_matrix->data_arr[i]);
     }
     free(my_matrix->data_arr);
     free(my_matrix);
 }
 
-//  Time complexity: 
+//  Time complexity: the function rec_1 is a recursive function which runs
+//  nr_vals steps for N times.
+//  Therefore, time complexity = theta(nr_vals^N)
 void perm_rec_1(int N, int nr_vals){
     int array[N];
     rec_1(array, 0, N, nr_vals);
@@ -78,7 +80,10 @@ void rec_2(int * array, matrix_ptr res, int i, int * j, int nr_vals){
     }
 }
 
-//  Time complexity: 
+//  Time complexity: allocation the array takes theta(nr_vals^N)
+//  the function rec_2 runs nr_vals steps for N values exactly like rec_1.
+//  Therefore time complexity = theta(nr_vals^N) + theta(nr_vals^N)
+//  Therefore = theta(nr_vals^N)
 matrix_ptr perm_rec_2(int N, int nr_vals) {
     matrix_ptr res = (matrix_ptr) malloc(sizeof(struct matrix_2D_struct));
     res->cols = N;
@@ -95,8 +100,8 @@ matrix_ptr perm_rec_2(int N, int nr_vals) {
 }
 
 /*  Time complexity: 
- *  N + (N + N + N -1)*(nr_vals) 
- *  So time complexity = theta(N*nr_vals)  
+ *  N + (N + N + N -1)*(nr_vals^N) 
+ *  So time complexity = theta(N*(nr_vals^N))  
 */
 void perm_iter(int N, int nr_vals){    
     int array[N];

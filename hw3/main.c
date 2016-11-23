@@ -37,9 +37,9 @@ void call_perm_rec_1(int N, int nr_vals){
  * array with all the permutations.
  */
 int main(int argc, char** argv) {        
-    char str[10] = {'a','b','c','d','e'};
+    char str[10] = {'a','b','c','d','e','f'};
     printf("Original: %s\n", str);
-    reverse_str(str,5);
+    reverse_str(str,6);
     printf("Reversed: %s\n", str);	
 	
     call_perm_rec_1(3,2);  // you need to implement perm_rec_1
